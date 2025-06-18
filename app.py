@@ -4,10 +4,9 @@ import os
 
 app = Flask(__name__)
 
-# ⛔️ REEMPLAZA ESTE TOKEN POR EL NUEVO DE BOTFATHER
-TELEGRAM_TOKEN = "8088824671:AAG1nqPYfJ8akVIN10Vo_yYjChKQ3EX1my4"
-
-# ✅ REEMPLAZA CON TU CHAT_ID (usualmente tu ID de Telegram personal)
+# 🚨 Pega aquí el nuevo TOKEN
+TELEGRAM_TOKEN = "8888824671:AAFl1qPvfj8akVIN10V_yJychKQ3EX1my4"
+# 🚨 Y aquí tu ID personal (el tuyo: 467302456)
 CHAT_ID = "467302456"
 
 @app.route('/webhook', methods=["POST"])
@@ -21,7 +20,7 @@ def webhook():
 
         msg = f"""🚨 Señal detectada en {symbol}
 ✅ Exchange: {exchange}
-📈 Tipo: {signal_type}
+📊 Tipo: {signal_type}
 💰 Precio: {price}"""
 
         url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
@@ -32,7 +31,6 @@ def webhook():
 
         response = requests.post(url, json=payload)
         print("✅ Telegram response:", response.status_code, response.text)
-
         return "OK", 200
 
     return "No data", 400
