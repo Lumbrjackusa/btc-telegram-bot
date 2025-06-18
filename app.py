@@ -21,10 +21,12 @@ def webhook():
 📝 Tipo: {signal_type}
 💰 Precio: {price}"""
 
-        requests.post(
-            f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
-            json={"chat_id": CHAT_ID, "text": msg}
-        )
+       response = requests.post(
+    f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
+    json={"chat_id": CHAT_ID, "text": msg}
+)
+print("🔁 Telegram response:", response.status_code, response.text)
+
     return "OK", 200
 
 if __name__ == '__main__':
