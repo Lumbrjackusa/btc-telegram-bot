@@ -16,9 +16,9 @@ def webhook():
         exchange = data.get("exchange", "Binance")
 
         msg = f"""
-🚨 Señal detectada en {symbol}
-💹 Exchange: {exchange}
-📈 Tipo: {signal_type}
+📡 Señal detectada en {symbol}
+🟢 Exchange: {exchange}
+🧭 Tipo: {signal_type}
 💰 Precio: {price}
 """
 
@@ -28,7 +28,6 @@ def webhook():
         )
     return "OK", 200
 
-# Render tomará el puerto desde una variable de entorno
 if __name__ == '__main__':
     import os
     port = int(os.environ.get("PORT", 5000))
