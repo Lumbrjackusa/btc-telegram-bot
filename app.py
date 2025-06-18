@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-TELEGRAM_TOKEN = "7460766184:AAF0Z5smkrm1b98oi3EfcmGQwqa5xHEv1o"
+TELEGRAM_TOKEN = "7460766184:AAFOZ5smkrn1b98oi3EfcmGQwqa5xHEv1o"
 CHAT_ID = "467320456"
 
 @app.route('/webhook', methods=['POST'])
@@ -16,16 +16,17 @@ def webhook():
         symbol = data.get("symbol", "BTC/USDT")
         exchange = data.get("exchange", "Binance")
 
-        msg = f"""📉 Señal detectada en {symbol}
-🟩 Exchange: {exchange}
-📝 Tipo: {signal_type}
+        msg = f"""📊 Señal detectada en {symbol}
+✅ Exchange: {exchange}
+📈 Tipo: {signal_type}
 💰 Precio: {price}"""
 
-       response = requests.post(
-    f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
-    json={"chat_id": CHAT_ID, "text": msg}
-)
-print("🔁 Telegram response:", response.status_code, response.text)
+        response = requests.post(
+            f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
+            json={"chat_id": CHAT_ID, "text": msg}
+        )
+
+        print("🔁 Telegram response:", response.status_code, response.text)
 
     return "OK", 200
 
