@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-TELEGRAM_TOKEN = "7460766184:AAFOZ5smkrn1b98oi3EfcmGQwqa5xHEv1o"
+TELEGRAM_TOKEN = "7460766184:AAG85LeutaJwp1La3L85L9Dtnn1mJCCpbzg"
 CHAT_ID = "467320456"
 
 @app.route('/webhook', methods=['POST'])
