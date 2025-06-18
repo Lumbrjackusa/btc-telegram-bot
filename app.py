@@ -4,8 +4,8 @@ import os
 
 app = Flask(__name__)
 
-TELEGRAM_TOKEN = "7460766184:AAHXRMGq4wMP1elkg1AcAvNb72WtC1VGsBM"  # Pega aquí tu token válido actual
-CHAT_ID = "467302456"  # Tu chat ID
+TELEGRAM_TOKEN = "7460766184:AAHXRM9q4wMP1eklg1AcAvNb72WtC1VGsBM"  # Token actualizado
+CHAT_ID = "467302456"  # Tu chat ID real
 
 @app.route('/webhook', methods=["POST"])
 def webhook():
@@ -22,15 +22,12 @@ def webhook():
 💰 Precio: {price}"""
 
         url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
-        payload = {
-            "chat_id": CHAT_ID,
-            "text": msg
-        }
-
+        payload = {"chat_id": CHAT_ID, "text": msg}
         response = requests.post(url, json=payload)
-        print("🧠 Telegram response:", response.status_code, response.text)
 
+        print("📤 Telegram response:", response.status_code, response.text)
         return "OK", 200
+
     return "No data", 400
 
 if __name__ == "__main__":
