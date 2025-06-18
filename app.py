@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-TELEGRAM_TOKEN = "7460766184:AAFOZ5smkrm1b98oi3EfcmGQwqa5xHEv1o"
+TELEGRAM_TOKEN = "7460766184:AAF0Z5smkrm1b98oi3EfcmGQwqa5xHEv1o"
 CHAT_ID = "467320456"
 
 @app.route('/webhook', methods=['POST'])
@@ -17,8 +17,8 @@ def webhook():
         exchange = data.get("exchange", "Binance")
 
         msg = f"""📉 Señal detectada en {symbol}
-✅ Exchange: {exchange}
-📈 Tipo: {signal_type}
+🟩 Exchange: {exchange}
+📝 Tipo: {signal_type}
 💰 Precio: {price}"""
 
         requests.post(
