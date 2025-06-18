@@ -4,8 +4,8 @@ import os
 
 app = Flask(__name__)
 
-TELEGRAM_TOKEN = "8008824671:AAG11qPVfj8akV1N01Qv_YjvChKQ3EX1my4"  # Pega tu token aquí
-CHAT_ID = "467902456"  # Este es tu chat ID personal
+TELEGRAM_TOKEN = "8008824671:AAG11qPVfj8akV1N01Qv_YjvChKQ3EX1my4"
+CHAT_ID = "467902456"
 
 @app.route('/webhook', methods=["POST"])
 def webhook():
